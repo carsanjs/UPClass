@@ -13,6 +13,8 @@ import { formatTimeTo12Hour } from "../../../../src/utils/functiones/functions";
 import Loading from "../../../share/loading";
 import LayoutScroolView from "../../Components/Layout/UseScroollView";
 import { NotRegistration } from "../../Components/unregistered/noRegistration";
+import { View } from "react-native";
+import { BoxView } from "../components/customBoxView";
 
 // Función para normalizar datos automáticamente en base a un valor máximo estándar
 const screenWidth = Dimensions.get("window").width;
@@ -140,7 +142,7 @@ export const EstadisticasReportes = () => {
 
   return (
     <LayoutScroolView>
-      <Text style={styles.title}> Salon Menos Utilizado</Text>
+     <Text style={styles.title}> Salon Menos Utilizado</Text>
       {smenosu.length > 0 ? (
         <BarChart
           style={styles.chartContainer}
@@ -150,9 +152,14 @@ export const EstadisticasReportes = () => {
           chartConfig={chartConfig}
         />
       ) : (
-        <NotRegistration/>
+        <View style={{
+          paddingVertical:20
+        }}>
+          <NotRegistration/>
+        </View>
       )}
-      <Text style={styles.title}> Horas del Dia mas Asignada</Text>
+
+<Text style={styles.title}> Horas del Dia mas Asignada</Text>
       {pieChartData.length > 0 ? (
         <PieChart
           style={styles.chartContainer}
@@ -166,8 +173,13 @@ export const EstadisticasReportes = () => {
           center={[20, 0]}
         />
       ) : (
-        <NotRegistration/>
+        <View style={{
+          paddingVertical:20
+        }}>
+          <NotRegistration/>
+        </View>
       )}
+
       <Text style={styles.title}> Dias de la Semana mas Asignado</Text>
       {sortedDiasmas.length > 0 ? (
         <LineChart
@@ -179,7 +191,11 @@ export const EstadisticasReportes = () => {
           bezier
         />
       ) : (
-        <NotRegistration/>
+        <View style={{
+          paddingVertical:20
+        }}>
+          <NotRegistration/>
+        </View>
       )}
       <Text style={styles.title}> Docente con mas Comentarios Realizado</Text>
       {dqmct.length > 0 ? (
@@ -191,7 +207,11 @@ export const EstadisticasReportes = () => {
           chartConfig={chartConfig}
         />
       ) : (
-        <NotRegistration/>
+        <View style={{
+          paddingVertical:20
+        }}>
+          <NotRegistration/>
+        </View>
       )}
     </LayoutScroolView>
   );
@@ -202,7 +222,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     textAlign: "center",
-    marginVertical: 8,
+    marginVertical: 20,
   },
   chartContainer: {
     marginVertical: 5,

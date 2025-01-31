@@ -19,7 +19,6 @@ import {
   getHorarioOne,
 } from "../../../src/services/fetchData/fetchHorarios";
 import { UseFlatList } from "./FlatList/customFlatList";
-import Loading from "../../share/loading";
 
 export const ListItemComponentHorario = ({
   additionalData = null,
@@ -84,10 +83,6 @@ export const ListItemComponentHorario = ({
     additionalData !== null && additionalData !== undefined
       ? additionalData
       : horarios;
-
-  if (reload) {
-    return <Loading />;
-  }
 
   return (
     <UseFlatList
